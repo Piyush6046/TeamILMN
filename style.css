@@ -1,0 +1,120 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto Condensed', sans-serif;
+    background-color: #020202; /* Dark background */
+    color: #ffffff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    padding: 70px 0;
+    text-align: center;
+    background: url('https://png.pngtree.com/thumb_back/fh260/background/20221229/pngtree-gaming-youtube-banner-background-2560x1440-image_1537493.jpg'); /* Animated background */
+    background-size: cover;
+    background-position: center;
+    animation: backgroundAnimation 20s infinite linear;
+}
+
+@keyframes backgroundAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+header h1 {
+    font-size: 48px;
+    text-shadow: 2px 2px 4px rgba(6, 6, 6, 0.5); /* Text shadow for a gaming effect */
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.hero {
+    background-image: url('https://wallpapers.com/images/high/best-gaming-background-nk6pk2gt3j5f1vaf.webp'); /* Replace 'https://example.com/background.jpg' with the actual URL of the image */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 320px 0;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for a gaming effect */
+}
+
+.btn {
+    display: inline-block;
+    background-color: #FF4500; /* OrangeRed */
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 20px;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #FF6347; /* Tomato */
+}
+
+.featured-games {
+    padding: 50px 0;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Each column minimum 300px width, expand as much as possible */
+    gap: 20px; /* Gap between game cards */
+}
+
+.game-card {
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2); /* Box shadow */
+    overflow: hidden; /* Hide any content that exceeds the dimensions of the card */
+}
+
+.game-card iframe {
+    width: 100%; /* Make the iframe inside the game card fill its container */
+    height: 400px; /* Set a fixed height for the iframe */
+    border: none;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+    .featured-games {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust grid columns for smaller screens */
+    }
+}
+
+

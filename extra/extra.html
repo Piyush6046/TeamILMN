@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Gamer Zone</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset default browser styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto Condensed', sans-serif;
+            background-image: url('sources/background.jpg'); /* Use the same background image */
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            background-attachment: fixed; /* Ensure the background image remains fixed while scrolling */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            padding: 40px 0;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0); /* Semi-transparent black background */
+        }
+
+        header h1 {
+            color: rgb(216, 232, 213); /* Semi-transparent white text */
+        }
+
+        nav ul li a {
+            color: rgba(255, 255, 255, 0.9); /* Semi-transparent white text */
+        }
+
+        nav ul li a:hover {
+            color: rgba(255, 255, 255, 1); /* Fully opaque white text on hover */
+        }
+
+        header h1 {
+            font-size: 100px;
+            text-shadow: 2px 2px 4px rgba(240, 5, 5, 0.5); /* Text shadow for a gaming effect */
+        }
+
+        nav ul {
+            list-style-type:circle;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 40px;
+        }
+
+        nav ul li a {
+            color: #fefefe;
+            text-decoration:solid;
+            font-size: 20px;
+        }
+
+        .hero {
+            background-color: rgba(0, 0, 0, 0); /* Semi-transparent black background */
+            color: #000000;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 58px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(9, 202, 232, 0.5); /* Text shadow for a gaming effect */
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #fa4604; /* OrangeRed */
+            color: #f5f1f1;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 20px;
+            margin-top: 20px;
+            transition: all 2ms ease;
+        }
+
+        .btn:hover {
+            background-color: #e629080f; /* Tomato */
+        }
+
+        .game-list {
+            background-color: rgba(6, 0, 0, 0.368); /* Semi-transparent black background */
+            color: #fff;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .game-list h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .game-list ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .game-list li {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+            position: relative; /* Added for positioning play button */
+        }
+
+        .game-list li a {
+            background-color: #81f8ee73; /* Semi-transparent orange */
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 20px;
+            transition: all 0.3s ease;
+            position: relative; /* Added for positioning play button */
+        }
+
+        .game-list li a:hover {
+            background-color: #f3800d; /* Tomato */
+        }
+
+        .game-list li img {
+            max-width: 700px;
+            margin-bottom: 10px;
+            height: auto;
+            border-radius: 5px;
+            position: relative; /* Added for positioning play button */
+        }
+
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .play-btn img {
+            width: 30px;
+            height: auto;
+            filter: brightness(0.8) invert(1); /* Invert color for play icon */
+        }
+
+        .game-list li:hover .play-btn {
+            transform: translate(-50%, -50%) scale(1.2); /* Scale up on hover */
+        }
+
+        .game-list li:hover .play-btn img {
+            filter: brightness(1) invert(1); /* Revert color to original on hover */
+        }
+
+        .game-list li:hover p {
+            background-color: purple; /* Change background color to purple on hover */
+        }
+
+        .game-list li p {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            background-color: transparent;
+            padding: 5px;
+            margin: 0;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            border-radius: 5px;
+            color: #fff;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Pro Gamer Zone</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="games.html">Games</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login/index.html">Login</a></li> <!-- Added login link -->
+                </ul>
+            </nav>
+        </div>
+         <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <!-- Slides will be added dynamically here -->
+        </div>
+    </header>
+    <section class="hero">
+        <div class="container">
+            <h2>Welcome to Pro Gamer Zone</h2>
+            <h3>Where gaming becomes an art.</h3>
+            <a href="games.html" class="btn">Explore Games</a>
+        </div>
+    </section>
+    <section class="game-list">
+        <div class="container">
+            <h2>Cart of Games</h2>
+            <ul>
+                <li>
+                    <a href="tetris2.html">
+                        <img src="https://cdn-icons-png.freepik.com/512/10249/10249263.png" alt="Tetris Logo">
+                        <p>Pac-Man</p>
+                        <div class="play-btn"><img src="sources/play.png" alt="Play Button"></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="Drum-Kit-main/index.html">
+                        <img src="https://static.vecteezy.com/system/resources/thumbnails/000/373/203/small_2x/drums-10piece.jpg" alt="Drum Kit Logo">
+                        <p>Drum Kit</p>
+                        <div class="play-btn"><img src="sources/play.png" alt="Play Button"></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="ASTEROIDS/index.html">
+                        <img src="https://imageio.forbes.com/specials-images/imageserve/618ed11bde61f1b9de93c0c6/The-space-themed-multidirectional-shooter-arcade-game--Asteroids--/960x0.jpg?format=jpg&width=960" alt="Asteroids Logo">
+                        <p>Asteroids</p>
+                        <div class="play-btn"><img src="sources/play.png" alt="Play Button"></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="xo.html">
+                        <img src="https://media.licdn.com/dms/image/C5612AQHm4tg5c35tLg/article-cover_image-shrink_600_2000/0/1584175590822?e=2147483647&v=beta&t=qm5hr2_27kVDNVn_sE3GbMazFcsr0i-6HeQrF807dEw" alt="Tik Tac Toe Logo">
+                        <p>Tetris</p>
+                        <div class="play-btn"><img src="sources/play.png" alt="Play Button"></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="https://freesimon.org/images/simon-game-card.png" alt="Simon Game Logo">
+                        <p>Simon Game</p>
+                        <div class="play-btn"><img src="sources/play.png" alt="Play Button"></div>
+                    </a>
+                </li>
+                <!-- Add more games as needed -->
+            </ul>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Pro Gamer Zone. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    
+
+
+</body>
+</html>
+
+
+<div class="user-options" id="userOptions">
+    <ul>
+        <!-- Show Piyush button only if the user is logged in -->
+        <li id="piyushButton" style="display: none;"><button style="height: 30;"><b style="height: 40;">Piyush</b></button></li>
+        <li><a href="#" onclick="logout()">Logout</a></li>
+    </ul>
+</div>
