@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Animated Login Form</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url('../sources/backgroundlogin.jpeg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            width: 400px;
+            padding: 40px;
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.8);
+            text-align: center;
+            border-radius: 15px;
+            color: #fff;
+        }
+
+        .box h2 {
+            margin-bottom: 20px;
+        }
+
+        .inputBox {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .inputBox input {
+            width: 100%;
+            padding: 10px;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #fff;
+            font-size: 18px;
+            border-bottom: 1px solid #fff;
+        }
+
+        .inputBox span {
+            position: absolute;
+            left: 0;
+            padding: 10px;
+            pointer-events: none;
+            transition: 0.5s;
+        }
+
+        .inputBox input:focus ~ span,
+        .inputBox input:valid ~ span {
+            transform: translateY(-20px);
+            font-size: 14px;
+            color: #03a9f4;
+        }
+
+        .links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <form id="loginForm" autocomplete="off">
+            <h2>Sign in</h2>
+            <div class="inputBox">
+                <input type="text" id="username" required="required">
+                <span>Username</span>
+            </div>
+            <div class="inputBox">
+                <input type="password" id="password" required="required">
+                <span>Password</span>
+            </div>
+            <div class="links">
+                <a href="#">Forgot Password?</a>
+                <a href="#">Signup</a>
+            </div>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get username and password values
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            console.log("Username entered:", username);
+            console.log("Password entered:", password);
+
+            // Check if username and password match the credentials
+            if (username === '1' && password === '1') {
+                console.log("Login successful!");
+                // Set username in local storage
+                localStorage.setItem('username', '1');
+                
+                // Redirect to index.html
+                window.location.href = '../index.html';
+            } else {
+                console.log("Login failed!");
+                // Incorrect credentials, handle accordingly (display error message, etc.)
+                alert('Incorrect username or password. Please try again.');
+            }
+        });
+    </script>
+</body>
+</html>

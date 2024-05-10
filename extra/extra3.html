@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Gamer Zone</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset default browser styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto Condensed', sans-serif;
+            background-image: url('sources/background.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            padding: 20px 0;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.8);
+            position: relative;
+        }
+
+        header h1 {
+            color: rgb(216, 232, 213);
+            font-size: 3.5rem;
+            text-shadow: 2px 2px 4px rgba(240, 5, 5, 0.5);
+            margin-bottom: 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fefefe;
+            text-decoration: none;
+            font-size: 1.8rem;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #fa4604;
+        }
+
+        .avatar {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .avatar img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .avatar:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .user-options {
+            position: absolute;
+            top: 80px;
+            right: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            padding: 10px 20px;
+            display: none;
+        }
+
+        .user-options ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .user-options ul li {
+            margin-bottom: 10px;
+        }
+
+        .user-options ul li a {
+            color: #333;
+            text-decoration: none;
+            font-size: 1.6rem;
+        }
+
+        .user-options ul li a:hover {
+            color: #fa4604;
+        }
+
+        .hero {
+            background-color: rgba(0, 0, 0, 0);
+            color: #000000;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(9, 202, 232, 0.5);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #fa4604;
+            color: #f5f1f1;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.8rem;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #e62908;
+        }
+
+        .game-list {
+            background-color: rgba(6, 0, 0, 0.5);
+            color: #fff;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .game-list h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .game-list ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .game-list li {
+            margin: 10px;
+            flex: 0 0 calc(33.333% - 20px);
+            max-width: calc(33.333% - 20px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .game-list li a {
+            display: block;
+            background-color: #81f8ee;
+            color: #fff;
+            padding: 20px;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .game-list li a:hover {
+            background-color: #f3800d;
+        }
+
+        .game-list li img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .game-list li p {
+            margin-top: 10px;
+            font-size: 1.6rem;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 1.4rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Pro Gamer Zone</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#" onclick="checkLogin('games.html')">Games</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="avatar" onclick="toggleUserOptions()">
+                <img src="sources/user_avatar.jpg" alt="User Avatar">
+            </div>
+            <div class="user-options" id="userOptions">
+                <ul>
+                    <li><a href="#" onclick="logout()">Logout</a></li>
+                    <li><a href="login/index.html">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="container">
+            <h2>Welcome to Pro Gamer Zone</h2>
+            <h3>Where gaming becomes an art.</h3>
+            <a href="games.html" class="btn">Explore Games</a>
+        </div>
+    </section>
+    <section class="game-list">
+        <div class="container">
+            <h2>Cart of Games</h2>
+            <ul>
+                <li>
+                    <a href="#" onclick="checkLogin('tetris2.html')">
+                        <img src="https://cdn-icons-png.freepik.com/512/10249/10249263.png" alt="Tetris Logo">
+                        <p>Pac-Man</p>
+                       
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="checkLogin('Drum-Kit-main/index.html')">
+                        <img src="https://static.vecteezy.com/system/resources/thumbnails/000/373/203/small_2x/drums-10piece.jpg" alt="Drum Kit Logo">
+                        <p>Drum Kit</p>
+                        
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="checkLogin('ASTEROIDS/index.html')">
+                        <img src="https://imageio.forbes.com/specials-images/imageserve/618ed11bde61f1b9de93c0c6/The-space-themed-multidirectional-shooter-arcade-game--Asteroids--/960x0.jpg?format=jpg&width=960" alt="Astroids Logo">
+                        <p>Asteroids</p>
+                       
+                    </a>
+                </li>
+               
+                <li>
+                    <a href="#" onclick="checkLogin('xo.html')">
+                        <img src="https://media.licdn.com/dms/image/C5612AQHm4tg5c35tLg/article-cover_image-shrink_600_2000/0/1584175590822?e=2147483647&v=beta&t=qm5hr2_27kVDNVn_sE3GbMazFcsr0i-6HeQrF807dEw" alt="Tik Tac Toe Logo">
+                        <p>Tetris</p>
+                       
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="checkLogin('')">
+                        <img src="https://freesimon.org/images/simon-game-card.png" alt="Simon Game Logo">
+                        <p>Simon Game</p>
+                       
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Pro Gamer Zone. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function checkLogin(gamePage) {
+            console.log("Checking login status...");
+            var username = localStorage.getItem('username');
+            console.log("Username:", username);
+            if (!username) {
+                alert('Please login to access games.');
+                console.log("Redirecting to login page...");
+                window.location.href = "login/index.html";
+            } else {
+                console.log("User is logged in, redirecting to game page:", gamePage);
+                window.location.href = gamePage;
+            }
+        }
+
+        function logout() {
+            console.log("Logging out...");
+            localStorage.removeItem('username');
+            alert("You have been logged out.");
+            console.log("Redirecting to login page...");
+            window.location.href = "login/index.html";
+        }
+
+        function toggleUserOptions() {
+            var userOptions = document.getElementById('userOptions');
+            userOptions.style.display = userOptions.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>
